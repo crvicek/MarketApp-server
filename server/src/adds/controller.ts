@@ -8,7 +8,7 @@ export default class AddController {
   @Get('/adds')
 allPages() {
   const adds = Add.find()
-  return { adds }
+  return  adds 
 }
 
   @Get('/adds/:id')

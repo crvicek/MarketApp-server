@@ -1,7 +1,8 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import Add from './Add'
+import * as request from 'superagent'
 
 const adds = [
   {
@@ -31,15 +32,34 @@ const adds = [
   },
 ]
 
-
 class AddContainer extends Component {
   state = {
     adds: adds
   }
 
+  componentDidMount() {
 
-  render() {  
-  return  <Add adds={this.state}></Add>
+    request('http://localhost:4000/adds')
+      .then(response => this.props.dispatch({
+        type: 'GET_ADDS',
+        payload: response.body
+      })
+      )
+  }
+
+  // function getAdds() {
+  // return function (dispatch) {
+  //   request('localhost:4000/adds/1')
+  //     .then(response => {
+  //       dispatch(response)
+  //     })
+  // }
+  // }
+
+
+
+  render() {
+    return <Add adds={this.props.adds}></Add>
   }
 }
 
@@ -48,4 +68,4 @@ const mapStateToProps = (state) => {
     adds: state
   }
 }
-export default connect (mapStateToProps)(AddContainer)
+export default connect(mapStateToProps)(AddContainer)
