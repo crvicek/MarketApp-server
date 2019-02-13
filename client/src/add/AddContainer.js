@@ -4,37 +4,9 @@ import { connect } from 'react-redux'
 import Add from './Add'
 import * as request from 'superagent'
 
-const adds = [
-  {
-    title: 'Omafiets',
-    description: 'Runs like a butter',
-    picture: 'pictureplaceholder'
-  },
-  {
-    title: 'Old Mac Pro',
-    description: 'Runs like a butter',
-    picture: 'pictureplaceholder'
-  },
-  {
-    title: 'Ford Fiesta',
-    description: 'Runs like a butter',
-    picture: 'pictureplaceholder'
-  },
-  {
-    title: 'Oven',
-    description: 'Runs like a butter',
-    picture: 'pictureplaceholder'
-  },
-  {
-    title: 'Last years potatos',
-    description: 'Tastes like a butter',
-    picture: 'pictureplaceholder'
-  },
-]
 
 class AddContainer extends Component {
   state = {
-    adds: adds
   }
 
   componentDidMount() {
@@ -47,17 +19,6 @@ class AddContainer extends Component {
       )
   }
 
-  // function getAdds() {
-  // return function (dispatch) {
-  //   request('localhost:4000/adds/1')
-  //     .then(response => {
-  //       dispatch(response)
-  //     })
-  // }
-  // }
-
-
-
   render() {
     return <Add adds={this.props.adds}></Add>
   }
@@ -65,7 +26,7 @@ class AddContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    adds: state
+    adds: state.adds
   }
 }
 export default connect(mapStateToProps)(AddContainer)

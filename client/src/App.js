@@ -3,6 +3,7 @@ import './App.css';
 import './Add.css';
 import { Route } from 'react-router-dom'
 import AddContainer from './add/AddContainer'
+import SingleAddContainer from './single-add/SingleAddContainer';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         </div>
 
         <Route exact path="/" component={AddContainer} />
+        <Route path="/adds/:id" component={SingleAddContainer} />
       </div>
     );
   }
