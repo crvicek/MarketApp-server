@@ -21,7 +21,6 @@ export default class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id?: number
 
-  @IsNotEmpty()
   @IsString()
   @Length(3, 15)
   @Column('text')
@@ -44,5 +43,4 @@ export default class User extends BaseEntity {
 
   @OneToMany(_type => Ad, ad => ad.userId)
   ads: Ad[]
-
 }
