@@ -1,9 +1,5 @@
-client/node_modules
-server/node_modules
-
-server/target
-
-
+node_modules
+build
 
 /.pnp
 .pnp.js
