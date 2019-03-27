@@ -13,7 +13,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "target": "es2017",
-    "outDir": "target/",
+    "outDir": "build/",
     "rootDir": "src/"
   },
   "include": [
